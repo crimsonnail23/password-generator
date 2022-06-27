@@ -69,6 +69,50 @@ var getUppercase = function(){
   }
 
 
+};
+
+var getNumbers = function (){
+
+  var getNumbersPrompt = window.prompt("Do you want numbers in your password? types 1 for yes, and 2 for no");
+
+  if (getNumbersPrompt == "1"){
+
+    window.alert("You do want numbers");
+
+} else if (getNumbersPrompt == "2") {
+
+    window.alert("You do NOT want numbers")
+
+} else {
+
+    window.alert("Invalid response");
+
+    getNumbers();
+
+}
+
+};
+
+var getSpecialCharacters = function(){
+
+  var specialCharactersPrompt = window.prompt("Do you want special characters? type 1 for yes, and 2 for no");
+
+  if (specialCharactersPrompt == "1") {
+
+    window.prompt("You do want special characters");
+
+} else if (specialCharactersPrompt == "2"){
+
+    window.prompt("you do not want special characters")
+
+} else {
+
+  window.prompt("Invalid Response");
+
+  getSpecialCharacters();
+
+}
+
 }
 
 
@@ -78,6 +122,8 @@ function writePassword() {
   getLength();
   getLowercase();
   getUppercase();
+  getNumbers();
+  getSpecialCharacters();
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
