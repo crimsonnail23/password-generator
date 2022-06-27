@@ -115,6 +115,18 @@ var getSpecialCharacters = function(){
 
 }
 
+var characterCheck = function(){
+
+  if(lowercasePrompt == "2" && uppercasePrompt == "2" && getNumbersprompt == "2" && specialCharactersPrompt == "2"){
+
+    window.prompt("You need to select at least 1 character type.");
+
+    getLowercase();
+
+  }
+
+}
+
 
 // Write password to the #password input
 function writePassword() {
@@ -124,6 +136,7 @@ function writePassword() {
   getUppercase();
   getNumbers();
   getSpecialCharacters();
+  characterCheck();
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
