@@ -1,8 +1,7 @@
 // Assignment code here
 
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+//function to determine length of password.
 var getLength = function(){
   
   var getLengthPrompt = window.prompt("How many characters do you want it to be? it has to be at least 8 and no more than 128 characters");
@@ -24,6 +23,8 @@ var getLength = function(){
 
 }
 
+
+//function to see if password will have lowercase or not.
 var getLowercase = function(){
 
   var lowercasePrompt = window.prompt("Do you want lowercase? type 1 for yes, 2 for no")
@@ -47,6 +48,8 @@ var getLowercase = function(){
 
 }
 
+
+//funtion to see if password will have uppercase
 var getUppercase = function(){
   
   var uppercasePrompt = window.prompt ("Do you want uppercase? type 1 for yes 2 for no.")
@@ -71,6 +74,7 @@ var getUppercase = function(){
 
 };
 
+//function to see if password will have numbers
 var getNumbers = function (){
 
   var getNumbersPrompt = window.prompt("Do you want numbers in your password? types 1 for yes, and 2 for no");
@@ -93,21 +97,23 @@ var getNumbers = function (){
 
 };
 
+
+//function to see if password will have special characters.
 var getSpecialCharacters = function(){
 
   var specialCharactersPrompt = window.prompt("Do you want special characters? type 1 for yes, and 2 for no");
 
   if (specialCharactersPrompt == "1") {
 
-    window.prompt("You do want special characters");
+    window.alert("You do want special characters");
 
 } else if (specialCharactersPrompt == "2"){
 
-    window.prompt("you do not want special characters")
+    window.alert("you do not want special characters")
 
 } else {
 
-  window.prompt("Invalid Response");
+  window.alert("Invalid Response");
 
   getSpecialCharacters();
 
@@ -115,6 +121,8 @@ var getSpecialCharacters = function(){
 
 }
 
+
+//function to make sure at least one character was selected from the previous functions.
 var characterCheck = function(){
 
   if(lowercasePrompt == "2" && uppercasePrompt == "2" && getNumbersprompt == "2" && specialCharactersPrompt == "2"){
@@ -126,6 +134,11 @@ var characterCheck = function(){
   }
 
 }
+
+
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
+
 
 
 // Write password to the #password input
