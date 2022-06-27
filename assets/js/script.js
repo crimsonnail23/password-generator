@@ -28,18 +28,17 @@ var getLowercase = function(){
 
   var lowercasePrompt = window.prompt("Do you want lowercase? type 1 for yes, 2 for no")
 
-
-    if(lowercasePrompt === 1){
+    if(lowercasePrompt == "1"){
 
       window.alert("You have chosen lowercase");
 
-} else if(lowercasePrompt === 2) {
+} else if(lowercasePrompt == "2") {
 
-      window.alert("You do NOT want lower case")
+      window.alert("You do NOT want lower case");
 
 } else {
 
-    window.alert("Invalid response")
+    window.alert("Invalid response");
 
     getLowercase();
 
