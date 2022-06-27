@@ -47,7 +47,29 @@ var getLowercase = function(){
 
 }
 
-var getUppercase = function(){}
+var getUppercase = function(){
+  
+  var uppercasePrompt = window.prompt ("Do you want uppercase? type 1 for yes 2 for no.")
+
+    if(uppercasePrompt == "1"){
+
+      window.alert("You have chosen uppercase");
+
+} else if (uppercasePrompt == "2"){
+
+      window.alert("You do NOT want uppercase");
+
+}
+  else{
+
+      window.alert("invalid response");
+
+      getUppercase();
+
+  }
+
+
+}
 
 
 // Write password to the #password input
@@ -55,9 +77,12 @@ function writePassword() {
 
   getLength();
   getLowercase();
-    
+  getUppercase();
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
+
+
 
   passwordText.value = password;
 
