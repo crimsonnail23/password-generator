@@ -2,11 +2,12 @@
 var generateBtn = document.querySelector("#generate");
 
 //creating a passwordProperties object that should get updated as the user puts in the required info once the writePassword function begins.
-//default length is 8, but should get updated once the writePassword function runs.
+//properties other than length are boolean, so that later on when a function that makes the password 
+//will check these values to see which character types are needed in the password.
 
 passwordProperties = {
 
-  length: 8,
+  length: 0,
   
   lowercase: Boolean,
 
@@ -15,6 +16,8 @@ passwordProperties = {
   numbers:Boolean,
 
   special: Boolean,
+
+  check: Boolean,
 
 }
 
@@ -27,6 +30,21 @@ var uppercaseLettersArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M"
 var numbersArray = ["0","1","2","3","4","5","6","7","8","9"];
 
 var specialCharactersArray = []
+
+
+//following code will pull from the arrays depending on the user inputs from the writePassword function.
+//also, for it work, certain conditions must be met: a password length between 8 and 128, and at least 1 character type must be selected.
+function generatePassword(){
+  if(passwordProperties.length>=8 && passwordProperties.length<=128 && passwordProperties.check==true){
+
+    for(var i=0; i<=passwordProperties.length; i++){
+
+      
+    }
+  }
+
+};
+
 
 // Write password to the #password input
 function writePassword() {
@@ -63,7 +81,7 @@ function writePassword() {
 
   if(lowercasePrompt == "1"){
 
-    window.alert("You have chosen lowercase");
+    window.alert("You want lowercase characters in your password.");
 
     
     passwordProperties.lowercase= true;
@@ -73,7 +91,7 @@ function writePassword() {
 
 } else if(lowercasePrompt == "2") {
 
-    window.alert("You do NOT want lower case");
+    window.alert("You do NOT want lowercase characters in your password.");
 
     passwordProperties.lowercase=false;
 
@@ -84,7 +102,7 @@ function writePassword() {
   window.alert("Invalid response, try again");
 
 
-
+  //following code resets to beginning of function so the code doesn't keep going with an invalid response.
   writePassword();
 
 }
@@ -95,11 +113,20 @@ function writePassword() {
 
   if(uppercasePrompt == "1"){
 
-  window.alert("You have chosen uppercase");
+  window.alert("You do want uppercase");
+
+  passwordProperties.uppercase=true;
+
+  console.log("uppercase: " + passwordProperties.uppercase);
+
 
 } else if (uppercasePrompt == "2"){
 
   window.alert("You do NOT want uppercase");
+
+  passwordProperties.uppercase=false;
+
+  console.log("uppercase: " + passwordProperties.uppercase);
 
 }
   else{
@@ -119,9 +146,17 @@ function writePassword() {
 
   window.alert("You do want numbers");
 
+  passwordProperties.numbers= true;
+
+  console.log("numbers: " + passwordProperties.numbers)
+
 } else if (getNumbersPrompt == "2") {
 
   window.alert("You do NOT want numbers")
+
+  passwordProperties.numbers=false;
+
+  console.log("numbers: " + passwordProperties.numbers);
 
 } else {
 
@@ -139,9 +174,17 @@ function writePassword() {
 
   window.alert("You do want special characters");
 
+  passwordProperties.special=true;
+
+  console.log("special: " + passwordProperties.special);  
+
 } else if (specialCharactersPrompt == "2"){
 
-  window.alert("you do NOT want special characters")
+  window.alert("you do NOT want special characters");
+
+  passwordProperties.special=false;
+
+  console.log("special characters: " + passwordProperties.special);
 
 } else {
 
@@ -159,28 +202,32 @@ function writePassword() {
 
   window.alert("You need to select at least 1 character type.");
 
+  passwordProperties.check= false;
+
+  console.log("check: " + passwordProperties.check);
+
   
   //if at least one character type isn't selected, then it'll reset the function so the code won't continue with a null set for all character types.
   writePassword();
 
+} else{
+
+  passwordProperties.check= true;
+  console.log("check: " + passwordProperties.check)
+
 }
 
-for(var i=0; i <= getLengthPrompt; i++ ){
 
 
-
-}
-
-
-  var password = generatePassword();
+  generatePassword();
   var passwordText = document.querySelector("#password");
 
 
 
   passwordText.value = password;
 
-}
 
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
