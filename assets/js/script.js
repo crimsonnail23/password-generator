@@ -32,16 +32,48 @@ var numbersArray = ["0","1","2","3","4","5","6","7","8","9"];
 var specialCharactersArray = ["!","@","#","$","%","^","&","*","(",")","_","-","+","=","~","`","[","]","{","}","|"]
 
 
-//following code will pull from the arrays depending on the user inputs from the writePassword function.
+//following code will pull from the arrays depending on if that passwordProperties value is true or not.
 //also, for it work, certain conditions must be met: a password length between 8 and 128, and at least 1 character type must be selected.
 function generatePassword(){
+  
+  
   if(passwordProperties.length>=8 && passwordProperties.length<=128 && passwordProperties.check==true){
 
-    for(var i=0; i=passwordProperties.length; i++){
 
+    for(var i=0; i<passwordProperties.length; i++){
+     
+      if(passwordProperties.length=true){
+
+      Math.floor((Math.random()* lowercaseLettersArray.length));
+
+      }
+      
+      if(passwordProperties.uppercase=true){
+
+        Math.floor((Math.random()*uppercaseLettersArray.length));
+
+      }
+
+      if(passwordProperties.numbers=true){
+
+        Math.floor((Math.random()*numbersArray.length));
+
+      }
+
+      if(passwordProperties.special=true){
+
+        Math.floor((Math.random()*specialCharactersArray.length));
+
+      }
+
+      window.alert()
 
     }
+
+    
   }
+
+  
 
 };
 
