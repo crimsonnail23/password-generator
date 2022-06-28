@@ -1,7 +1,32 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+//creating a passwordProperties object that should get updated as the user puts in the required info once the writePassword function begins.
+//default length is 8, but should get updated once the writePassword function runs.
 
+passwordProperties = {
+
+  length: 8,
+  
+  lowercase: Boolean,
+
+  uppercase: Boolean,
+
+  numbers:Boolean,
+
+  special: Boolean,
+
+}
+
+
+//various arrays that need to be pulled from to make password.
+var lowercaseLettersArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","y","z"];
+
+var uppercaseLettersArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+
+var numbersArray = ["0","1","2","3","4","5","6","7","8","9"];
+
+var specialCharactersArray = []
 
 // Write password to the #password input
 function writePassword() {
@@ -15,6 +40,14 @@ function writePassword() {
   if(getLengthPrompt >=8 && getLengthPrompt <=128 ){
 
     window.alert("You have chosen " + getLengthPrompt);
+
+
+    //following code should update the length property of passwordProperties to the user input, if the input is in range.
+    passwordProperties.length=getLengthPrompt;
+
+    //console log to check if passwordProperties are getting updated.
+    console.log("password length is " + passwordProperties.length + " charcters long.");
+
 
   } else{
 
@@ -32,23 +65,32 @@ function writePassword() {
 
     window.alert("You have chosen lowercase");
 
+    
+    passwordProperties.lowercase= true;
+
+    
+    console.log("lowercase:" + passwordProperties.lowercase);
+
 } else if(lowercasePrompt == "2") {
 
     window.alert("You do NOT want lower case");
-    console.log(lowercasePrompt);
+
+    passwordProperties.lowercase=false;
+
+    console.log("lowercase:" + passwordProperties.lowercase);
 
 } else {
 
   window.alert("Invalid response, try again");
 
 
-  //following code resets to beginning of function so the code doesn't keep going with an invalid response.
+
   writePassword();
 
 }
 
 
-//following code to determine if there will be uppercase characters in the password.
+  //following code to determine if there will be uppercase characters in the password.
   var uppercasePrompt = window.prompt ("Do you want uppercase? type 1 for yes 2 for no.")
 
   if(uppercasePrompt == "1"){
@@ -123,6 +165,12 @@ function writePassword() {
 
 }
 
+for(var i=0; i <= getLengthPrompt; i++ ){
+
+
+
+}
+
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -135,3 +183,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
