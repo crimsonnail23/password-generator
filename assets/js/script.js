@@ -7,7 +7,7 @@ var generateBtn = document.querySelector("#generate");
 
 passwordProperties = {
 
-  length: 0,
+  size: 0,
   
   lowercase: Boolean,
 
@@ -34,42 +34,49 @@ var numbersArray = ["0","1","2","3","4","5","6","7","8","9"];
 var specialCharactersArray = ["!","@","#","$","%","^","&","*","(",")","_","-","+","=","~","`","[","]","{","}","|"];
 
 
+//step 1:combine character arrays based on user input.
+//step2:
+
 //following code will pull from the arrays depending on if that passwordProperties value is true or not.
 //also, for it work, certain conditions must be met: a password length between 8 and 128, and at least 1 character type must be selected.
 function generatePassword(){
   
  
 
-  if(passwordProperties.length>=8 && passwordProperties.length<=128 && passwordProperties.check==true){
+  if(passwordProperties.size>=8 && passwordProperties.size<=128 && passwordProperties.check==true){
+    var charactersArray = []
+
+    if(passwordProperties.lowercase==true){
+
+      charactersArray=charactersArray.concat(lowercaseLettersArray)
+
+    }
+
+    if(passwordProperties.uppercase==true){
+
+      charactersArray=charactersArray.concat(uppercaseLettersArray)
+
+    }
+
+    if(passwordProperties.numbers==true){
+
+      charactersArray=charactersArray.concat(numbersArray)
+
+    }
+
+    if(passwordProperties.special==true){
+
+      charactersArray=charactersArray.concat(specialCharactersArray)
+
+    }
+
 
    
-    for(var i=0; i<passwordProperties.length; i++){
+    for(var i=0; i<passwordProperties.size; i++){
      
-      if(passwordProperties.length=true){
+        var character =charactersArray[Math.floor(Math.random()*charactersArray.length)]
 
-      lowercaseLettersArray[Math.floor((Math.random()* lowercaseLettersArray.length))];
-
-      }
-      
-      if(passwordProperties.uppercase=true){
-
-        uppercaseLettersArray[Math.floor((Math.random()*uppercaseLettersArray.length))];
-
-      }
-
-      if(passwordProperties.numbers=true){
-
-        numbersArray[Math.floor((Math.random()*numbersArray.length))];
-
-      }
-
-      if(passwordProperties.special=true){
-
-        specialCharactersArray[Math.floor((Math.random()*specialCharactersArray.length))];
-
-      }
-
-      
+      passwordProperties.final=passwordProperties.final+character
 
     } 
 
@@ -102,10 +109,10 @@ function writePassword() {
 
 
     //following code should update the length property of passwordProperties to the user input, if the input is in range.
-    passwordProperties.length=getLengthPrompt;
+    passwordProperties.size=getLengthPrompt;
 
     //console log to check if passwordProperties are getting updated.
-    console.log("password length is " + passwordProperties.length + " charcters long.");
+    console.log("password length is " + passwordProperties.size + " charcters long.");
 
 
   } else{
