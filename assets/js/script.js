@@ -92,7 +92,13 @@ function showPassword(){
 
   window.alert("Your password is " + passwordProperties.final);
 
+  const oldWords = document.querySelector(".card-body").innerText = passwordProperties.final;
+  
+  console.log(oldWords);
+
 }
+
+
 
 // Write password to the #password input
 function writePassword() {
@@ -272,7 +278,9 @@ function writePassword() {
 
   showPassword();
 
-  passwordText.value = password;
+  
+
+
 
 
 }
