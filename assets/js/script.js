@@ -44,6 +44,10 @@ function generatePassword(){
  
 
   if(passwordProperties.size>=8 && passwordProperties.size<=128 && passwordProperties.check==true){
+    
+    //i put an empty array that will be added to dependong on the user inputs. for example, if the user wants to lowercase and special characters, those arrays,
+    //will be added to the empty array. and then the password will be chosen from this new array.
+    
     var charactersArray = []
 
     if(passwordProperties.lowercase==true){
@@ -87,7 +91,7 @@ function generatePassword(){
 
 };
 
-
+//following code will show the password in a window prompt, the text box on the page itself, and in a console log. 
 function showPassword(){
 
   window.alert("Your password is " + passwordProperties.final);
