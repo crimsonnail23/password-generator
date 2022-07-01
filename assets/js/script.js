@@ -91,14 +91,14 @@ function generatePassword(){
 
 };
 
-//following code will show the password in a window prompt, the text box on the page itself, and in a console log. 
+//following code will show the password in a window prompt, the text box on the page itself. 
 function showPassword(){
 
   window.alert("Your password is " + passwordProperties.final);
 
-  const oldWords = document.querySelector(".card-body").innerText = passwordProperties.final;
+ document.querySelector("#password").textContent = passwordProperties.final;
   
-  console.log(oldWords);
+
 
 }
 
